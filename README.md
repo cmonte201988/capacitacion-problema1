@@ -263,3 +263,38 @@ comprueba si GIT_REPOSITORY_REMOTE_SSH esta vacio usando strip y dependiendo el 
 ## ¿Qué hace cada paso?
 Se detallo arriba
 
+
+
+##¿Que sucede si no volumeo el docker.sock?
+Si no volumeo  no podria obtener docker dentro del contenedor de jenkins
+
+##¿Para que sirve el volumen var/jenkins_home?
+Para persistir la data.
+
+##¿Puedo cambiar de puerto?
+solo el puerto local.
+
+##¿Que pasa si no utlizo el usuario root?
+
+
+##¿Còmo instalo make en una imagen?
+RUN apk add --update make
+
+## PREGUNTAS:
+##¿Se puede crear un volúmen desde otro volúmen en docker? ¿Porqué?
+La pregunta esta mal
+
+##¿Para que sirve el comando docker create -v <dir> --name <container> <image>?
+
+
+##¿Qué hace el comando docker cp ./ <container>:<dir>?
+
+
+
+##¿Cómo creo una network usando docker run?
+
+
+##¿Cómo conecto una network a un container? usando docker run
+
+
+##¿Qué hace docker run -it --rm --volumes-from <container> -w <dir> <image> <command>?

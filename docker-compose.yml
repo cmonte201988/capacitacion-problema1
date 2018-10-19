@@ -12,5 +12,3 @@ services:
   test:
     image: nodecurl
     command: curl http://172.24.0.2:3030/
-
-
