@@ -1,4 +1,6 @@
-include ./makefiletask.mk
+# include ./makefiles/task.mk
+include ./makefiles/deploy-ghpages.mk
+
 .DEFAULT_GOAL := help
 .PHONY : resources
 
@@ -20,9 +22,11 @@ release: ## build project
 greet: ## Ejecuta saludo
 	docker run -e VAR="TATAJE" -it -v $$PWD:$(APPDIR) -w $(WORKDIR) $(IMAGE) sh resources/example.sh
 
-resources: ## saludando por bash
+resources: ## saludando por bash: make resources
 	@echo 'Hola recursos!'
 
-
+## Target Help ##
 help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-16s\033[0m %s\n", $$1, $$2}'
+	@printf "\033[31m%-22s %-59s %s\033[0m\n" "Target" " Help" "Usage"; \
+	printf "\033[31m%-22s %-59s %s\033[0m\n"  "------" " ----" "-----"; \
+	grep -hE '^\S+:.*## .*$$' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' | sort | awk 'BEGIN {FS = ":"}; {printf "\033[32m%-22s\033[0m %-58s \033[34m%s\033[0m\n", $$1, $$2, $$3}'
